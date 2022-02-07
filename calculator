@@ -1,0 +1,130 @@
+package gui;
+
+//import java.io.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class MyGui extends Frame implements ActionListener,KeyListener{
+		
+		Button one,two,three,four,five,six,seven,eight,nine,zero,equal;
+		Button minus,plus,multi,divide,sumit;
+		TextField textfield;
+		String s;
+		String min,plu,mul,div;
+		
+		
+	MyGui(){
+		
+		GridLayout gridlayout = new GridLayout(4,4);
+			setLayout(gridlayout);
+			setTitle("Calculator");
+//			setBackgroud(Color.BLUE);
+			setBounds(500,500,500,500);
+			setVisible(true);
+			
+			
+			sumit =new Button("C");
+			sumit.addActionListener(this);
+			
+			textfield = new TextField(10);
+			equal=new Button("=");
+			one = new Button("1");
+			two = new Button("2");			
+		    three = new Button("3");
+		    four = new Button("4");
+			five = new Button("5");
+			six = new Button("6");
+			seven = new Button("7");
+			eight = new Button("8");
+			nine = new Button("9");
+			zero = new Button("0");
+			minus =new Button("-");
+			plus =new Button("+");
+			multi =new Button("*");
+			divide =new Button("/");
+			
+			add(textfield);			
+			add(one);
+			add(two);
+			add(three);
+			add(four);
+			add(five);
+			add(six);
+			add(seven);
+			add(eight);
+			add(nine);
+			add(zero);
+			add(minus);
+			add(plus);
+			add(multi);
+			add(divide);
+			add(sumit);
+			add(equal);
+			s="";
+			addKeyListener(this);
+			
+						
+			one.addActionListener(this);
+			two.addActionListener(this);
+			three.addActionListener(this);
+			four.addActionListener(this);
+			five.addActionListener(this);
+			six.addActionListener(this);
+			seven.addActionListener(this);
+			eight.addActionListener(this);
+			nine.addActionListener(this);
+			zero.addActionListener(this);
+			minus.addActionListener(this);
+			plus.addActionListener(this);
+			multi.addActionListener(this);
+			divide.addActionListener(this);
+			
+			
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		//System.out.println(textfield.getText());
+		
+		Button b=(Button)e.getSource();
+		if(b!= sumit ) {
+			s=s+b.getLabel();
+		}
+		else {
+			s="";
+		}
+		
+		
+		if(b==multi) {
+			mul=textfield.getText();
+			s="";
+		}
+		
+		
+		textfield.setText(s);
+	}
+	public static void main(String[] args) {
+		
+		new MyGui();
+//		int num1=Integer.parseInt(num1);
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		char ch=(char)e.getSource();
+		System.out.println(ch);
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}
+
